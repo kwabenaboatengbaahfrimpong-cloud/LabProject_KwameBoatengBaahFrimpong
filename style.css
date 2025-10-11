@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fb;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header, footer {
+    background-color: hsl(8, 100%, 20%);
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+  }
+  
+  h1, h2 {
+    margin: 0.5em 0;
+  }
+  
+  .center-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .form-box {
+    width: 90%;
+    max-width: 400px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: hsl(8, 100%, 20%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: hsl(8, 94%, 44%);
+  }
+  
+  p {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .dashboard {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+  }
+  
+  .dashboard section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  a {
+    color:  hsl(8, 100%, 20%);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  nav ul {
+    list-style: none;
+    background-color: hsl(8, 100%, 20%);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+  }
+  
+  nav ul li a:hover {
+    background-color: hsl(8, 93%, 37%);
+    border-radius: 5px;
+  }
+
+  @media (max-width: 600px) {
+    nav ul {
+      flex-direction: column;
+    }
+  
+    .form-box, .dashboard {
+      width: 95%;
+    }
+  }
+  

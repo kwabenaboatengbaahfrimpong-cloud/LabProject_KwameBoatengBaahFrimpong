@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - Attendance System</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <header>
@@ -14,7 +15,7 @@
   <main class="center-container">
     <div class="form-box">
       <h2>Sign Up</h2>
-      <form action="#" method="post">
+      <form action="signup.php" method="post">
         <label for="fullname">Full Name</label>
         <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
 
@@ -42,5 +43,26 @@
   <footer>
     <p>&copy; 2025 Attendance System | Ashesi University</p>
   </footer>
+  
+  <script src="script.js"></script>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      fetch('signup.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.success) {
+          alert('Registration successful!');
+          window.location.href = 'login.html';
+        } else {
+          alert(data.message);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

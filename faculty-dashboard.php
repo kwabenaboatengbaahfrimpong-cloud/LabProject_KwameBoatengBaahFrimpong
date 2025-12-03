@@ -31,6 +31,7 @@ if ($_SESSION['role'] != 'faculty') {
     <section>
       <h2>Course Management</h2>
       <button onclick="showCreateCourse()">Create New Course</button>
+      <button onclick="loadMyCourses()">Refresh Courses</button>
       <div id="createCourseModal" style="display:none;">
         <input type="text" id="courseName" placeholder="Course Name">
         <input type="text" id="courseCode" placeholder="Course Code">
@@ -43,6 +44,7 @@ if ($_SESSION['role'] != 'faculty') {
 
     <section>
       <h2>Student Requests</h2>
+      <button onclick="loadPendingRequests()">Refresh Requests</button>
       <div id="pendingRequests">
       </div>
     </section>

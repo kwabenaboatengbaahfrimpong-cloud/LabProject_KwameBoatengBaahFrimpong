@@ -30,6 +30,7 @@ if ($_SESSION['role'] != 'student') {
   <main class="dashboard">
     <section>
       <h2>My Courses</h2>
+      <button onclick="loadMyCourses()">Refresh Courses</button>
       <div id="myCourses">
       </div>
     </section>

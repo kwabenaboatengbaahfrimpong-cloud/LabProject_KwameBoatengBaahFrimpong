@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Attendance System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <header>
+    <h1>Attendance Management System</h1>
+  </header>
+
+  <main class="center-container">
+    <div class="form-box">
+      <h2>Login</h2>
+      <form action="login.php" method="post">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <label for="role">Login as</label>
+        <select id="role" name="role" required>
+          <option value="">Select your role</option>
+          <option value="student">Student</option>
+          <option value="faculty">Faculty</option>
+          <option value="intern">Faculty Intern</option>
+        </select>
+
+        <div style="margin: 10px 0;">
+          <input type="checkbox" id="remember" name="remember" style="width: auto; margin: 0;">
+          <label for="remember" style="display: inline; margin-left: 5px;">Remember Me</label>
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
+
+      <p>Don’t have an account? <a href="signup.html">Register here</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>2025 Attendance System | Ashesi University</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      fetch('login.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.success) {
+          if (data.role == 'student') {
+            window.location.href = 'student-dashboard.php';
+          } else if (data.role == 'faculty') {
+            window.location.href = 'faculty-dashboard.php';
+          } else {
+            window.location.href = 'intern-dashboard.php';
+          }
+        } else {
+          alert(data.message);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
